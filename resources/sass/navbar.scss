@@ -1,0 +1,25 @@
+nav{
+  line-height: 4rem;
+  ul{
+    list-style: none;
+    text-transform: uppercase;
+    text-align: center;
+    li{
+      a{
+        color: grey;
+        font-size: 1.15rem;
+        text-decoration: none;
+        border-bottom: 0px solid grey;
+        border-radius: 15%;
+      }
+      &:hover a{
+        color: black;
+      }
+      .active{
+        color: black;
+        border-bottom: 5px solid grey;
+        font-size: 3rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+
+.jumbotron{
+  display: flex;
+  justify-content: center;
+  border-bottom: 10px solid grey;
+  font-size: 2rem;
+  border-radius: 15%;
+  .logo{
+    width: 15%;
+    position: relative;
+    right: 4%;
+    bottom: -12%;
+    z-index: -1;
+  }
+}
+main{
+  display: flex;
+  justify-content: center;
+}
+.main-img{
+  width: 80%;
+  border-radius: 50%;
+  border: 1px solid #8080807d;
+  box-shadow: 12px 12px 39px 6px darkgray;
+}

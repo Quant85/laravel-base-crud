@@ -1,0 +1,30 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: $text;
+    font-size: 0.9375rem;
+    min-height: 100vh;
+    margin: 0;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0%;
+
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }
+}
+
+.wrap {
+    width: 80%;
+    margin: auto;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}

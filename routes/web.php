@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
 
     return view('home');
-});
+}); */
+
+Route::resource('/','HomeController');
+Route::resource('blog','BlogController');
+Route::resource('about','AboutController');

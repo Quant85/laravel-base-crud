@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +14,8 @@ class PageController extends Controller
     public function index()
     {
         //
+        $pages = ['home' => '/','about'=>'about','blog'=>'blog'];
+        return view('pages.about',compact('pages'));
     }
 
     /**
