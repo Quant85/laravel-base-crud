@@ -21,3 +21,6 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/','HomeController');
 Route::resource('blog','BlogController');
 Route::resource('about','AboutController');
+
+Route::resource('contacts', 'ContactController');
+Route::resource('posts', 'PostController');

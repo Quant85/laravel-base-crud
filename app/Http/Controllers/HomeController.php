@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index()
     {
         //
-        $pages = ['home' => '/','about'=>'about','blog'=>'blog'];
+        $pages = ['home' => '/','about'=>'about','blog'=>'blog','contacts'=>'contacts','posts'=>'posts'];
         return view('pages.home', compact('pages'));
     }
 

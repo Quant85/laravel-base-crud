@@ -3,24 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Post;
 
-class BlogController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Post $post)
+    public function index()
     {
+        //
         //posso salvare Post nelle parentesi come "tipo" e associare tutti i metodi di Post in una variabile (Post $posts)  ed usare il puntatore  $posts = $post->all
         
         $posts = Post::all();
         //$posts = $post->all();
         $pages = ['home' => '/','about'=>'about','blog'=>'blog','contacts'=>'contacts','posts'=>'posts'];
-        return view('pages.blog', compact('posts','pages'));
+        return view('posts.index', compact('posts','pages'));
     }
 
     /**
@@ -31,6 +31,7 @@ class BlogController extends Controller
     public function create()
     {
         //
+        return view('posts.create');
     }
 
     /**
@@ -42,6 +43,24 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         //
+        //elementi di validazione necessari
+        $request->validate([
+            'title'=>'required',
+            'subtitle'=>'required',
+            'body'=>'required'
+        ]);
+        //Qui creeremo il nostro Post
+        $post = new Post([
+            'title' => $request->get('title'),
+            //equivalente di 'title' => request('title')
+
+            'subtitle' => $request->get('subtitle'),
+            'img' => $request->get('img'),
+            'body' => $request->get('body')
+        ]);
+        //andiamo a salvare la risorsa appena creata
+        $post->save();
+        return redirect('/posts')->with('success', 'Post saved!');
     }
 
     /**
@@ -53,6 +72,9 @@ class BlogController extends Controller
     public function show($id)
     {
         //
+        $post = Post::find($id);
+
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -64,6 +86,8 @@ class BlogController extends Controller
     public function edit($id)
     {
         //
+        $post = Post::find($id);
+        return view('posts.edit', compact('post')); 
     }
 
     /**
@@ -76,6 +100,19 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'title'=>'required',
+            'subtitle'=>'required',
+            'body'=>'required'
+        ]);
+
+        $post = Post::find($id);
+        $post->title = $request->get('title');
+        $post->subtitle = $request->get('subtitle');
+        $post->img = $request->get('img');
+        $post->body = $request->get('body');
+        $post->save();
+        return redirect('/posts')->with('success', 'Post saved!');
     }
 
     /**
@@ -87,5 +124,8 @@ class BlogController extends Controller
     public function destroy($id)
     {
         //
+        $post = Post::find($id);
+            $post->delete();
+            return redirect('/posts')->with('success', 'Post deleted!');
     }
 }

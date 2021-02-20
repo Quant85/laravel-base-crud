@@ -13,5 +13,7 @@
 @endsection
 
 @section('main')
-    @include('layout.main')
+    <main>
+        {{-- @include('pages.login') --}}
+    </main>
 @endsection

@@ -14,7 +14,7 @@ class AboutController extends Controller
     public function index()
     {
         //
-        $pages = ['home' => '/','about'=>'about','blog'=>'blog'];
+        $pages = ['home' => '/','about'=>'about','blog'=>'blog','contacts'=>'contacts'];
         return view('pages.about',compact('pages'));
     }
 
@@ -26,6 +26,7 @@ class AboutController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
