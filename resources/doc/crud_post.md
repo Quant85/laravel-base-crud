@@ -16,7 +16,7 @@ Ci comparira un prompt per l'inserimento della password che è quella impostata 
 
 A questo punto possiamo eseguire le istruzioni per creare il nostro database ed assegnargli un nome.
 
-`mysql> CREATE DATABADE laravel_blog;` invio.
+`mysql> CREATE DATABASE laravel_blog;` invio.
 `mysql> show databases;` ci permette di verificare la creazione del database mostrandoci i database contenuti nel server mysql.
 
 `mysql> exit;` ci permette di uscire dal server mysql.
